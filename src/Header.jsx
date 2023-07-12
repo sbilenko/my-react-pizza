@@ -5,9 +5,6 @@ import logo from './assets/img/pizza-logo.svg';
 import Button from './Button';
 
 function Header() {
-
-    // const clickMe = () => alert('You are clicked')
-
     return (
         <div className="header">
             <div className="container">
@@ -19,11 +16,7 @@ function Header() {
                     </div>
                 </div>
                 <div className="header__cart">
-                    
-                    {/* <Button onClick={() => alert(555)} outline>Кнопка 1</Button> */}
-                    {/* <Button onClick={clickMe}>Кнопка 2</Button> */}
-
-                    <a href="/cart.html" className="button button--cart">
+                    <Button className="button button--cart">
                         <span>520 ₽</span>
                         <div className="button__delimiter"></div>
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +43,7 @@ function Header() {
                             />
                         </svg>
                         <span>3</span>
-                    </a>
+                    </Button>
                 </div>
             </div>
         </div>
