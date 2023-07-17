@@ -12,7 +12,7 @@ import React, { useState } from 'react';
 //     };
 
 //     render() {
-//         const { items, onSelectItem } = this.props;
+//         const { items } = this.props;
 //         return (
 //             <div className="categories">
 //                 <ul>
@@ -32,21 +32,23 @@ import React, { useState } from 'react';
 //     }
 // }
 
-function Categories({ items, onClickItem }) {
-    // const [count, setCount] = useState(0);
-    // const newNumber = () => setCount(prevState => prevState + 1);
+function Categories({ items }) {
+    const [activeItem, setActiveItem] = useState(0);
+
+    const onSelectItem = (index) => {
+        setActiveItem(index)
+    }
 
     return (
         <div className="categories">
             <ul>
                 {/* <li className="active">Все</li> */}
                 {items.map((name, index) => (
-                    <li onClick={() => onClickItem(name)} key={`${name}_${index}`}>
+                    <li className={activeItem === index ? 'active' : ''} onClick={() => onSelectItem(index)} key={`${name}_${index}`}>
                         {name}
                     </li>
                 ))}
             </ul>
-            {/* <button onClick={newNumber}>{`count is ${count}`}</button> */}
         </div>
     );
 }
