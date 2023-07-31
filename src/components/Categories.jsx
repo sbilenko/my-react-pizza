@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // class Categories extends React.Component {
 //     state = {
@@ -32,7 +32,7 @@ import React, { useState } from 'react';
 // }
 
 function Categories({ items }) {
-    const [activeItem, setActiveItem] = useState(0);
+    const [activeItem, setActiveItem] = React.useState(0);
 
     const onSelectItem = index => {
         setActiveItem(index);

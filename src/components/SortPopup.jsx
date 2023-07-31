@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function SortPopup() {
-    const [visiblePopup, setVisiblePopup] = useState(false);
-    
+    const [visiblePopup, setVisiblePopup] = React.useState(false);
+
     const toggleVisiblePopup = () => {
-        setVisiblePopup(!visiblePopup)
-    }
+        setVisiblePopup(visible => !visible);
+    };
+
+    const handleOutsideClick = e => {
+        console.log(e);
+    };
+
+    React.useEffect(() => {
+        document.body.addEventListener('click', handleOutsideClick);
+    }, []);
 
     return (
         <div className="sort">
@@ -19,13 +27,15 @@ function SortPopup() {
                 <b>Сортировка по:</b>
                 <span onClick={toggleVisiblePopup}>популярности</span>
             </div>
-            {visiblePopup && <div className="sort__popup">
-                <ul>
-                    <li className="active">популярности</li>
-                    <li>цене</li>
-                    <li>алфавиту</li>
-                </ul>
-            </div>}
+            {visiblePopup && (
+                <div className="sort__popup">
+                    <ul>
+                        <li className="active">популярности</li>
+                        <li>цене</li>
+                        <li>алфавиту</li>
+                    </ul>
+                </div>
+            )}
         </div>
     );
 }
